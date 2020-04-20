@@ -12,6 +12,7 @@ node {
     }
 
     stage('Generate JAR file') {
+        sh 'chmod +x mvnw'
         sh './mvnw package -DskipTests'
     }
 
