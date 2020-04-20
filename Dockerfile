@@ -3,6 +3,7 @@ EXPOSE 8080:8080
 COPY . .
 RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
+RUN cp target/*.jar ./app.jar
+#ARG JAR_FILE=target/*.jar
+#COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
