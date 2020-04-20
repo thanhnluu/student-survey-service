@@ -11,11 +11,6 @@ node {
     ])
     }
 
-    stage('Generate JAR file') {
-        sh 'chmod +x mvnw'
-        sh './mvnw package -DskipTests'
-    }
-
     stage('Build image') {
         app = docker.build("thanhnluu/swe645:student-survey-service")
     }
